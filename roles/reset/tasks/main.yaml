@@ -1,0 +1,28 @@
+---
+
+- name: Stopping kubelet
+  service:
+    name: kubelet
+    state: stopped
+
+- name: Stopping containerd.io
+  service:
+    name: containerd
+    state: stopped
+
+- name: Clearing /etc/cni
+  file:
+    path: /etc/cni
+    state: absent
+
+- name: Clearing /var/lib/cni
+  file:
+    path: /var/lib/cni
+    state: absent
+
+- name: Clearing /var/lib/kubelet
+  file:
+    path: /var/lib/kubelet
+    state: absent
+
+
